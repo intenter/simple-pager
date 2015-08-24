@@ -1,0 +1,30 @@
+{
+  "name": "simple-pager",
+  "version": "0.1.0",
+  "description": "Simple pager for node.js",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/intenter/simple-pager.git"
+  },
+  "keywords": [
+    "node",
+    "javascript",
+    "pager"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/intenter/simple-pager/issues"
+  },
+  "homepage": "https://github.com/intenter/simple-pager",
+  "devDependencies": {
+    "chai": "^3.2.0"
+  }
+}
