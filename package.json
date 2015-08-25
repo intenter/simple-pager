@@ -14,9 +14,11 @@
     "url": "https://github.com/intenter/simple-pager.git"
   },
   "keywords": [
-    "node",
+    "nodejs",
     "javascript",
-    "pager"
+    "pager",
+    "paging",
+    "pagination"
   ],
   "author": "intenter <int@intenter.org> (https://github.com/intenter)",
   "license": "Apache-2.0",
