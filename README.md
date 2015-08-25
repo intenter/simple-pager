@@ -39,3 +39,6 @@ Here is the full set of the available options with default values:
 * `surroundWith` - number of pages to output before and after the current
 * `outputFirst` - whether the first page should be present in the result array
 * `outputLast` - whether the last page should be present in the result array
+
+## TODO:
+* User input validation and errors reporting
