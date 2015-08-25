@@ -18,8 +18,8 @@
     "javascript",
     "pager"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "intenter <int@intenter.org> (https://github.com/intenter)",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/intenter/simple-pager/issues"
   },
