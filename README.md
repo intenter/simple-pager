@@ -1,6 +1,6 @@
 # simple-pager
-simple-pager is the small and simple pager library for node. It doesn't do any rendering instead it generates data model you can
-use in any way in your with yout template engine or with any other tools.
+simple-pager is the small and simple pager library for node. It doesn't do any rendering instead it generates data model
+you can use in any way in your with your template engine or with any other tools.
 
 ## Installation
 
@@ -22,11 +22,11 @@ The pagesModel will look like this:
 ]
 ```
 
-In fact getPagesNodel is the only method exposed by the module:
+In fact getPagesModel is the only method exposed by the module:
 ```js
   getPagesModel(currentPage, totalPages [, options])
 ```
-If you don't pass any options by default this method generates a list with the crrent page and couple of surrounding pages. 
+If you don't pass any options by default this method generates a list with the current page and couple of surrounding pages.
 Current page marked by the corresponding boolean property. 
 Here is the full set of the available options with default values:
 ```js
