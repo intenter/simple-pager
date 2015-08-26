@@ -1,11 +1,12 @@
 module.exports = {
     getPagerModel: function getPagerModel(currPage, totalPages, options) {
-        options = options ? options : {surroundWith:1, outputLast:false};
+        options = options ? options : {surroundWith: 1, outputFirst: false, outputLast: false};
         var model = [{page:currPage, current:true}];
         var testPage;
         var i;
-
-        for (i=0; i<options.surroundWith; i++) {
+        var surroundWith = ('undefined' !== typeof (options.surroundWith)) ? options.surroundWith : 1;
+        //to the right of the current
+        for (i=0; i<surroundWith; i++) {
             testPage = currPage + i + 1;
             if (testPage <= totalPages) {
                 model.push({page:testPage});
@@ -16,7 +17,8 @@ module.exports = {
         if (options.outputLast && model[model.length-1].page != totalPages) {
             model.push({page: totalPages});
         }
-        for (i=0; i<options.surroundWith; i++) {
+        //to the left of the current
+        for (i=0; i<surroundWith; i++) {
             testPage = currPage - i - 1;
             if (testPage >= 1) {
                 model.unshift({page:testPage});

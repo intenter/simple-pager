@@ -23,6 +23,9 @@ describe ('pager can have different number of surrounding pages to display', fun
     it('works with the explicit single surrounding page', function(){
         expect(pager.getPagerModel(4, 10, {surroundWith:1})).to.be.deep.equal([{page:3}, {page:4, current:true}, {page:5}]);
     });
+    it('works with the empty options passed', function(){
+        expect(pager.getPagerModel(4, 10, {})).to.be.deep.equal([{page:3}, {page:4, current:true}, {page:5}]);
+    });
     it('works with two surrounding pages', function(){
         expect(pager.getPagerModel(4, 10, {surroundWith:2})).to.be.deep.equal([
             {page:2}, {page:3},
@@ -40,7 +43,7 @@ describe ('pager can have different number of surrounding pages to display', fun
     });
 });
 
-describe ('pager display the first and the lastpages', function(){
+describe ('pager display the first and the last pages', function(){
     it('works with the single page', function(){
         expect(pager.getPagerModel(1, 1, {surroundWith:1, outputFirst:true, outputLast:true}))
             .to.be.deep.equal([{page:1, current:true}]);
