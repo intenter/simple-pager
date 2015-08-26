@@ -22,6 +22,8 @@ The pagesModel will look like this:
 ]
 ```
 
+The first page number is 1. Zero page is considered to be out of the valid pages range.
+
 In fact getPagesModel is the only method exposed by the module:
 ```js
   getPagesModel(currentPage, totalPages [, options])
