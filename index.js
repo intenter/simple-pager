@@ -1,5 +1,5 @@
 module.exports = {
-    getPagerModel: function getPagerModel(currPage, totalPages, options) {
+    getPagesModel: function getPagesModel(currPage, totalPages, options) {
         options = options ? options : {surroundWith: 1, outputFirst: false, outputLast: false};
         var model = [{page:currPage, current:true}];
         var testPage;
