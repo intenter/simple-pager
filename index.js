@@ -8,7 +8,7 @@ module.exports = {
         //to the right of the current
         for (i=0; i<surroundWith; i++) {
             testPage = currPage + i + 1;
-            if (testPage <= totalPages) {
+            if (testPage <= totalPages && testPage > 0) {
                 model.push({page:testPage});
             } else {
                 break;
@@ -20,7 +20,7 @@ module.exports = {
         //to the left of the current
         for (i=0; i<surroundWith; i++) {
             testPage = currPage - i - 1;
-            if (testPage >= 1) {
+            if (testPage <= totalPages && testPage > 0) {
                 model.unshift({page:testPage});
             } else {
                 break;

@@ -17,6 +17,12 @@ describe ('pager should work with default options', function(){
     it('works with 10 pages and the fourth current', function(){
         expect(pager.getPagesModel(4, 10)).to.be.deep.equal([{page:3}, {page:4, current:true}, {page:5}]);
     });
+    it('works with current bigger then total', function(){
+        expect(pager.getPagesModel(20, 10)).to.be.deep.equal([{page:20, current:true}]);
+    });
+    it('works with negative current', function(){
+        expect(pager.getPagesModel(-5, 10)).to.be.deep.equal([{page:-5, current:true}]);
+    });
 });
 
 describe ('pager can have different number of surrounding pages to display', function(){
