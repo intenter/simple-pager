@@ -59,5 +59,15 @@ describe ('pager display the first and the last pages', function(){
         expect(pager.getPagesModel(5, 10, {surroundWith:0, outputFirst:true, outputLast:true}))
             .to.be.deep.equal([{page:1}, {page:5, current:true}, {page:10}]);
     });
+
+    it('works with the current bigger then total', function(){
+        expect(pager.getPagesModel(20, 10, {surroundWith:0, outputFirst:true, outputLast:true}))
+            .to.be.deep.equal([{page:1}, {page:20, current:true}, {page:10}]);
+    });
+
+    it('works with the current beinge negative', function(){
+        expect(pager.getPagesModel(-5, 10, {surroundWith:0, outputFirst:true, outputLast:true}))
+            .to.be.deep.equal([{page:1}, {page:-5, current:true}, {page:10}]);
+    });
 });
 
