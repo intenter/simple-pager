@@ -29,7 +29,7 @@ In fact getPagesModel is the only method exposed by the module:
   getPagesModel(currentPage, totalPages [, options])
 ```
 If you don't pass any options by default this method generates a list with the current page and couple of surrounding pages.
-Current page marked by the corresponding boolean property. 
+The first, the last and current page will be marked by the corresponding boolean property. 
 Here is the full set of the available options with default values:
 ```js
 {

@@ -3,15 +3,15 @@ var expect = require('chai').expect;
 
 describe ('pager should work with default options', function(){
     it('works with 3 pages and middle current', function(){
-        expect(pager.getPagesModel(2, 3)).to.be.deep.equal([{page:1}, {page:2, current: true}, {page:3}]);
+        expect(pager.getPagesModel(2, 3)).to.be.deep.equal([{page:1, first: true}, {page:2, current: true}, {page:3, last: true}]);
     });
 
     it('works with the first current', function(){
-        expect(pager.getPagesModel(1, 10)).to.be.deep.equal([{page:1, current: true}, {page:2}]);
+        expect(pager.getPagesModel(1, 10)).to.be.deep.equal([{page:1, current: true, first: true}, {page:2}]);
     });
 
     it('works with 3 pages and the last current', function(){
-        expect(pager.getPagesModel(3, 3)).to.be.deep.equal([{page:2}, {page:3, current: true}]);
+        expect(pager.getPagesModel(3, 3)).to.be.deep.equal([{page:2}, {page:3, current: true, last: true}]);
     });
 
     it('works with 10 pages and the fourth current', function(){
@@ -40,9 +40,9 @@ describe ('pager can have different number of surrounding pages to display', fun
     });
     it('works with more surrounding pages then available', function(){
         expect(pager.getPagesModel(3, 5, {surroundWith:30})).to.be.deep.equal([
-            {page:1}, {page:2},
+            {page:1, first: true}, {page:2},
             {page:3, current:true},
-            {page:4}, {page:5}]);
+            {page:4}, {page:5, last: true}]);
     });
     it('works with zero surrounding pages', function(){
         expect(pager.getPagesModel(3, 5, {surroundWith:0})).to.be.deep.equal([{page:3, current:true}]);
@@ -52,22 +52,22 @@ describe ('pager can have different number of surrounding pages to display', fun
 describe ('pager display the first and the last pages', function(){
     it('works with the single page', function(){
         expect(pager.getPagesModel(1, 1, {surroundWith:1, outputFirst:true, outputLast:true}))
-            .to.be.deep.equal([{page:1, current:true}]);
+            .to.be.deep.equal([{page:1, current:true, first: true, last: true}]);
     });
 
     it('works with the middle is current', function(){
         expect(pager.getPagesModel(5, 10, {surroundWith:0, outputFirst:true, outputLast:true}))
-            .to.be.deep.equal([{page:1}, {page:5, current:true}, {page:10}]);
+            .to.be.deep.equal([{page:1, first: true}, {page:5, current:true}, {page:10, last: true}]);
     });
 
     it('works with the current bigger then total', function(){
         expect(pager.getPagesModel(20, 10, {surroundWith:0, outputFirst:true, outputLast:true}))
-            .to.be.deep.equal([{page:1}, {page:20, current:true}, {page:10}]);
+            .to.be.deep.equal([{page:1, first: true}, {page:20, current:true}, {page:10, last: true}]);
     });
 
     it('works with the current beinge negative', function(){
         expect(pager.getPagesModel(-5, 10, {surroundWith:0, outputFirst:true, outputLast:true}))
-            .to.be.deep.equal([{page:1}, {page:-5, current:true}, {page:10}]);
+            .to.be.deep.equal([{page:1, first: true}, {page:-5, current:true}, {page:10, last: true}]);
     });
 });
 

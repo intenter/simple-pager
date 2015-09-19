@@ -14,9 +14,13 @@ module.exports = {
                 break;
             }
         }
-        if (options.outputLast && model[model.length-1].page != totalPages) {
+        if (options.outputLast && model[model.length-1].page !== totalPages) {
             model.push({page: totalPages});
         }
+        if (model[model.length-1].page === totalPages){
+            model[model.length-1].last = true;
+        }
+        
         //to the left of the current
         for (i=0; i<surroundWith; i++) {
             testPage = currPage - i - 1;
@@ -26,8 +30,11 @@ module.exports = {
                 break;
             }
         }
-        if (options.outputFirst && model[0].page != 1) {
+        if (options.outputFirst && model[0].page !== 1) {
             model.unshift({page: 1});
+        }
+        if (model[0].page === 1) {
+            model[0].first = true;
         }
         return model;
     }
